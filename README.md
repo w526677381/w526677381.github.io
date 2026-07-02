@@ -1,1 +1,189 @@
-# w526677381.github.io
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优居家具 - 全屋实木软体家具商城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        /* 导航栏 */
+        header {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #d4af37;
+        }
+        /* 分类筛选区 */
+        .filter-box {
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .filter-btn {
+            padding: 10px 22px;
+            margin: 0 8px 12px;
+            border: 1px solid #d4af37;
+            background: #fff;
+            color: #2d2d2d;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .filter-btn.active {
+            background: #d4af37;
+            color: white;
+        }
+        .filter-btn:hover {
+            background: #d4af37;
+            color: #fff;
+        }
+        /* 商品容器 */
+        .container {
+            width: 90%;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        /* 商品卡片 */
+        .goods-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .goods-card:hover {
+            transform: translateY(-6px);
+        }
+        .img-box {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            background: #eee;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 图片上传按钮 */
+        .upload-input {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .info {
+            padding: 16px;
+        }
+        .info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .type-tag {
+            display: inline-block;
+            font-size: 12px;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 20px;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        /* 底部 */
+        footer {
+            background: #2d2d2d;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="logo">优居家具</div>
+        <nav>
+            <ul>
+                <li><a href=" ">首页</a ></li>
+                <li><a href="#goods">全部家具</a ></li>
+                <li><a href="#">关于我们</a ></li>
+                <li><a href="#">联系客服</a ></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 分类筛选 -->
+    <section id="goods" class="filter-box">
+        <button class="filter-btn active" data-type="all">全部家具</button>
+        <button class="filter-btn" data-type="table">餐桌</button>
+        <button class="filter-btn" data-type="dining-chair">餐椅</button>
+        <button class="filter-btn" data-type="swivel-chair">转椅</button>
+        <button class="filter-btn" data-type="sofa">沙发</button>
+        <button class="filter-btn" data-type="rocking-chair">摇椅</button>
+        <button class="filter-btn" data-type="massage-chair">按摩椅</button>
+    </section>
+
+    <!-- 商品展示区域 -->
+    <div class="container" id="goodsContainer">
+        <!-- 商品卡片JS动态生成 -->
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 优居家具 全屋家具线上商城 | 所有商品支持实拍图自定义上传
+    </footer>
+
+    <script>
+        // 家具数据（包含全部6大类，可自行修改名称、价格）
+        const goodsList = [
+            {
+                id:1,
+                name:"北欧岩板长方形餐桌",
+                type:
